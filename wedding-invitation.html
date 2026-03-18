@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>결혼합니다 ✦ 전준혁 & 공연주</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+/* ──────────────────────────────────────
+   CSS VARIABLES
+────────────────────────────────────── */
+:root {
+  --bg:            #474a37;
+  --bg-dark:       #3a3d2b;
+  --bg-darker:     #2e3020;
+  --accent:        #d8e592;
+  --accent-rgb:    216, 229, 146;
+  --accent-dim:    rgba(216,229,146,0.12);
+  --accent-mid:    rgba(216,229,146,0.25);
+  --accent-border: rgba(216,229,146,0.28);
+  --text:          #f5f2ea;
+  --text-muted:    rgba(245,242,234,0.6);
+  --text-faint:    rgba(245,242,234,0.35);
+  --card:          rgba(255,255,255,0.055);
+  --card-border:   rgba(216,229,146,0.16);
+  --radius:        16px;
+  --font-serif:    'Gowun Batang', serif;
+  --font-sans:     'Noto Sans KR', sans-serif;
+}
+
+/* ──────────────────────────────────────
+   RESET & GLOBAL
+────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg-darker);
+  background-image: radial-gradient(circle, rgba(216,229,146,0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  font-family: var(--font-sans);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+/* ──────────────────────────────────────
+   480px WRAPPER
+────────────────────────────────────── */
+#app {
+  width: 100%;
+  max-width: 480px;
+  background: var(--bg);
+  background-image: radial-gradient(circle, rgba(216,229,146,0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  position: relative;
+  box-shadow: 0 0 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(216,229,146,0.08);
+  overflow-x: hidden;
+}
+
+@media (min-width: 520px) {
+  #app { margin: 32px auto; border-radius: 24px; }
+}
+
+/* ──────────────────────────────────────
+   FADE-IN ANIMATIONS
+────────────────────────────────────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.fd1 { transition-delay: 0.1s; }
+.fd2 { transition-delay: 0.2s; }
+.fd3 { transition-delay: 0.3s; }
+.fd4 { transition-delay: 0.4s; }
+
+/* ──────────────────────────────────────
+   STAR DIVIDER
+────────────────────────────────────── */
+.star-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 32px;
+  opacity: 0.55;
+  color: var(--accent);
+}
+.star-divider::before, .star-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent-border), transparent);
+}
+.star-divider span { font-size: 11px; letter-spacing: 8px; }
+
+/* ──────────────────────────────────────
+   COMMON SECTION HEADER
+────────────────────────────────────── */
+.stag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--accent);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+.stitle {
+  font-family: var(--font-serif);
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.ssub {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════
+   1. HERO
+══════════════════════════════════════ */
+#hero {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  min-height: 580px;
+  overflow: hidden;
+}
+#hero-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(71,74,55,0.05) 0%,
+    rgba(71,74,55,0.15) 40%,
+    rgba(71,74,55,0.82) 82%,
+    rgba(58,61,43,1) 100%);
+}
+.hero-content {
+  position: absolute;
+  bottom: 92px; left: 0; right: 0;
+  text-align: center;
+  padding: 0 32px;
+}
+.hero-eyebrow {
+  font-size: 10px; font-weight: 300;
+  letter-spacing: 5px; color: var(--accent);
+  margin-bottom: 10px; text-transform: uppercase;
+  opacity: 0.9;
+}
+.hero-names {
+  font-family: var(--font-serif);
+  font-size: 34px; font-weight: 700;
+  color: var(--text); line-height: 1.25;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  margin-bottom: 10px;
+}
+.hero-names .amp { color: var(--accent); font-size: 28px; margin: 0 8px; }
+.hero-dateline {
+  font-size: 12px; font-weight: 300;
+  color: rgba(245,242,234,0.8);
+  letter-spacing: 3px;
+}
+.scroll-ind {
+  position: absolute; bottom: 26px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
+  cursor: pointer;
+  animation: bscroll 2.2s ease-in-out infinite;
+}
+.scroll-ind span {
+  font-size: 9px; letter-spacing: 4px;
+  color: var(--accent); opacity: 0.7; font-weight: 300;
+}
+.scroll-chev {
+  width: 18px; height: 18px;
+  border-right: 1.5px solid var(--accent);
+  border-bottom: 1.5px solid var(--accent);
+  transform: rotate(45deg);
+  opacity: 0.75; margin-top: -3px;
+}
+@keyframes bscroll {
+  0%,100% { transform: translateX(-50%) translateY(0); opacity:.8; }
+  50%      { transform: translateX(-50%) translateY(9px); opacity:1; }
+}
+
+/* ══════════════════════════════════════
+   2. INVITATION
+══════════════════════════════════════ */
+#invitation {
+  padding: 60px 32px 52px;
+  text-align: center;
+}
+.inv-stars {
+  display: block; color: var(--accent);
+  font-size: 14px; letter-spacing: 14px;
+  margin-bottom: 32px; opacity: 0.7;
+}
+.inv-parents {
+  font-family: var(--font-serif);
+  font-size: 13.5px; line-height: 2.2;
+  color: var(--text-muted); margin-bottom: 12px;
+}
+.inv-parents .hl {
+  color: var(--text); font-weight: 700; font-size: 15px;
+}
+.inv-sep {
+  width: 40px; height: 1px;
+  background: var(--accent-border);
+  margin: 24px auto;
+}
+.inv-msg {
+  font-family: var(--font-serif);
+  font-size: 15.5px; line-height: 2.4;
+  color: var(--text); position: relative; padding: 0 4px;
+}
+.inv-msg::before {
+  content: '\201C';
+  position: absolute; top: -20px; left: -4px;
+  font-size: 52px; color: var(--accent);
+  opacity: 0.18; font-family: Georgia, serif; line-height: 1;
+}
+.inv-sign {
+  margin-top: 30px;
+  font-family: var(--font-serif);
+  font-size: 15px; color: var(--accent);
+  font-weight: 700; letter-spacing: 3px;
+}
+
+/* ══════════════════════════════════════
+   3. CONTACT
+══════════════════════════════════════ */
+#contact {
+  padding: 52px 32px;
+  text-align: center;
+}
+.contact-hdr { margin-bottom: 18px; }
+.open-contact-btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--accent); color: var(--bg-dark);
+  border: none; border-radius: 50px;
+  padding: 14px 36px;
+  font-family: var(--font-sans); font-size: 14px; font-weight: 700;
+  cursor: pointer; letter-spacing: 0.5px;
+  transition: all .22s;
+}
+.open-contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(var(--accent-rgb),.38);
+}
+
+/* ──────────────────────────────────────
+   MODAL SHARED
+────────────────────────────────────── */
+.modal-ov {
+  display: none; position: fixed; inset: 0;
+  background: rgba(20,22,14,.72);
+  z-index: 900;
+  align-items: flex-end; justify-content: center;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+.modal-ov.active { display: flex; }
+
+.bsheet {
+  width: 100%; max-width: 480px;
+  background: var(--bg-dark);
+  border-radius: 24px 24px 0 0;
+  padding: 10px 24px 48px;
+  animation: sheetUp .38s cubic-bezier(.34,1.4,.64,1);
+  position: relative;
+  max-height: 88dvh; overflow-y: auto;
+  overscroll-behavior: contain;
+}
+@keyframes sheetUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+.bhandle {
+  width: 38px; height: 4px;
+  background: var(--accent-border);
+  border-radius: 2px;
+  margin: 10px auto 20px;
+}
+.btitle {
+  font-family: var(--font-serif);
+  font-size: 18px; font-weight: 700;
+  text-align: center; color: var(--text);
+  margin-bottom: 4px;
+}
+.bsub {
+  font-size: 12px; color: var(--text-muted);
+  text-align: center; margin-bottom: 24px;
+}
+.close-btn {
+  position: absolute; top: 18px; right: 20px;
+  background: none; border: none;
+  color: var(--accent); font-size: 22px;
+  cursor: pointer; opacity: 0.8; line-height: 1;
+  transition: opacity .2s;
+}
+.close-btn:hover { opacity: 1; }
+.sheet-dots {
+  position: absolute; top: 16px; left: 20px;
+  display: flex; gap: 5px;
+}
+.sheet-dots i {
+  width: 7px; height: 7px;
+  border-radius: 50%; background: var(--accent);
+  display: block;
+}
+.sheet-dots i:nth-child(1){opacity:.7}
+.sheet-dots i:nth-child(2){opacity:.4}
+.sheet-dots i:nth-child(3){opacity:.2}
+
+/* Contact two-col */
+.con-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+.con-col-ttl {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 3px; color: var(--accent);
+  text-align: center;
+  padding-bottom: 10px; border-bottom: 1px solid var(--accent-border);
+  margin-bottom: 12px;
+}
+.cp {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.cp:last-child { border-bottom: none; }
+.cp-rel { font-size: 10.5px; color: var(--text-muted); margin-bottom: 1px; }
+.cp-name { font-family: var(--font-serif); font-size: 14px; font-weight: 700; color: var(--text); }
+.cp-icons { display: flex; gap: 6px; }
+.cp-icons a {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--accent-dim); border: 1px solid var(--accent-border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent); font-size: 13px; text-decoration: none;
+  transition: all .2s;
+}
+.cp-icons a:hover { background: var(--accent); color: var(--bg-dark); }
+
+/* ══════════════════════════════════════
+   4. GALLERY
+══════════════════════════════════════ */
+#gallery { padding: 52px 0; }
+.gal-hdr { padding: 0 32px; margin-bottom: 22px; text-align: center; }
+.gal-track {
+  display: flex; gap: 10px;
+  overflow-x: auto; padding: 4px 32px 16px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.gal-track::-webkit-scrollbar { display: none; }
+.gal-card {
+  flex: 0 0 240px; height: 320px;
+  border-radius: 14px; overflow: hidden;
+  scroll-snap-align: start;
+  border: 1px solid var(--card-border);
+  position: relative; background: var(--bg-dark);
+}
+.gal-card img {
+  width: 100%; height: 100%; object-fit: cover;
+  display: block; transition: transform .45s ease;
+}
+.gal-card:hover img { transform: scale(1.05); }
+.gal-card::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(58,61,43,.4) 0%, transparent 40%);
+  pointer-events: none;
+}
+.gal-dots { display: flex; justify-content: center; gap: 6px; padding-top: 4px; }
+.gdot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent-border); cursor: pointer;
+  transition: all .3s;
+}
+.gdot.active { background: var(--accent); width: 16px; border-radius: 3px; }
+
+/* ══════════════════════════════════════
+   5. DATE & COUNTDOWN
+══════════════════════════════════════ */
+#countdown { padding: 52px 32px; text-align: center; }
+.dday-couple {
+  font-family: var(--font-serif);
+  font-size: 14px; color: var(--text-muted);
+  margin-bottom: 6px; letter-spacing: 1px;
+}
+.dday-couple .heart { color: #e57373; }
+.dday-msg {
+  font-family: var(--font-serif);
+  font-size: 15.5px; line-height: 1.9;
+  color: var(--text); margin-bottom: 8px;
+}
+.dday-msg .dnum { color: var(--accent); font-size: 28px; font-weight: 700; }
+.dday-sub { font-size: 12px; color: var(--text-muted); margin-bottom: 32px; letter-spacing: 1px; }
+
+/* Calendar */
+.cal-box {
+  background: var(--card); border: 1px solid var(--card-border);
+  border-radius: var(--radius); padding: 22px 18px; margin-bottom: 24px;
+}
+.cal-month {
+  font-family: var(--font-serif); font-size: 16px; font-weight: 700;
+  color: var(--accent); margin-bottom: 16px; text-align: center;
+}
+.cal-wk {
+  display: grid; grid-template-columns: repeat(7,1fr); margin-bottom: 6px;
+}
+.cal-wk span {
+  font-size: 11px; color: var(--text-muted); text-align: center; padding: 3px 0;
+}
+.cal-wk span:first-child { color: #e57373; }
+.cal-wk span:last-child  { color: #82b1ff; }
+.cal-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 3px; }
+.cday {
+  aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+  font-size: 12.5px; color: var(--text-muted); border-radius: 50%;
+}
+.cday.sun { color: rgba(229,115,115,.8); }
+.cday.sat { color: rgba(130,177,255,.8); }
+.cday.other { opacity: .25; }
+.cday.wedding {
+  background: var(--accent); color: var(--bg-dark);
+  font-weight: 700; font-size: 13px;
+  box-shadow: 0 0 18px rgba(var(--accent-rgb),.55);
+  position: relative;
+}
+.cday.wedding::after {
+  content: '♥'; position: absolute;
+  bottom: -1px; right: -1px;
+  font-size: 7px; color: var(--bg-dark); opacity: .7;
+}
+
+/* Timer */
+.timer-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
+.tbox {
+  background: var(--card); border: 1px solid var(--card-border);
+  border-radius: 12px; padding: 14px 6px; text-align: center;
+}
+.tnum {
+  font-family: var(--font-serif);
+  font-size: 28px; font-weight: 700;
+  color: var(--accent); line-height: 1;
+  margin-bottom: 5px; letter-spacing: -1px;
+}
+.tlbl { font-size: 10px; color: var(--text-muted); letter-spacing: 1.5px; font-weight: 500; }
+
+/* ══════════════════════════════════════
+   6. DIRECTIONS
+══════════════════════════════════════ */
+#directions { padding: 52px 32px; }
+.dir-hdr { text-align: center; margin-bottom: 24px; }
+.map-wrap {
+  width: 100%; height: 230px;
+  border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--card-border); margin-bottom: 18px;
+  background: var(--bg-dark);
+}
+.map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+.map-ph {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 10px; color: var(--text-muted);
+}
+.map-ph .mico { font-size: 36px; }
+.map-ph p { font-size: 12px; line-height: 1.6; text-align: center; padding: 0 20px; }
+.addr-card {
+  background: var(--card); border: 1px solid var(--card-border);
+  border-radius: var(--radius); padding: 20px; margin-bottom: 14px;
+}
+.venue-name { font-family: var(--font-serif); font-size: 17px; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+.venue-addr { font-size: 13px; color: var(--text-muted); line-height: 1.8; margin-bottom: 16px; }
+.map-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.mbtn {
+  padding: 11px; border: none; border-radius: 10px;
+  font-family: var(--font-sans); font-size: 13px; font-weight: 700;
+  cursor: pointer; text-decoration: none;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  transition: all .22s;
+}
+.mbtn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.4); }
+.mbtn.naver { background: #03C75A; color: #fff; }
+.mbtn.kakao { background: #FEE500; color: #391B1B; }
+.trans-list { display: flex; flex-direction: column; gap: 9px; margin-top: 14px; }
+.trans-row {
+  display: flex; gap: 12px; align-items: flex-start;
+  background: var(--card); border: 1px solid var(--card-border);
+  border-radius: 12px; padding: 13px 14px;
+}
+.tr-ico {
+  width: 34px; height: 34px; border-radius: 9px;
+  background: var(--accent-dim);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0; margin-top: 1px;
+}
+.tr-t { font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 3px; }
+.tr-d { font-size: 12.5px; color: var(--text-muted); line-height: 1.65; }
+
+/* ══════════════════════════════════════
+   7. VENUE INFO
+══════════════════════════════════════ */
+#venue { padding: 52px 32px; }
+.venue-hdr { text-align: center; margin-bottom: 24px; }
+.venue-photos {
+  display: flex; gap: 9px; overflow-x: auto;
+  margin-bottom: 20px; padding-bottom: 2px; scrollbar-width: none;
+}
+.venue-photos::-webkit-scrollbar { display: none; }
+.vphoto {
+  flex: 0 0 190px; height: 155px;
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid var(--card-border); background: var(--bg-dark);
+}
+.vphoto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.vinfo-card {
+  background: var(--card); border: 1px solid var(--card-border);
+  border-radius: var(--radius); overflow: hidden;
+}
+.vinfo-row {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(216,229,146,.07);
+}
+.vinfo-row:last-child { border-bottom: none; }
+.vnum {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--accent); color: var(--bg-dark);
+  font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.vi-t { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .5px; margin-bottom: 3px; }
+.vi-d { font-size: 13.5px; color: var(--text-muted); line-height: 1.7; }
+
+/* ══════════════════════════════════════
+   8. ACCOUNT (축의금)
+══════════════════════════════════════ */
+#account { padding: 52px 32px; }
+.acct-hdr { text-align: center; margin-bottom: 24px; }
+.acc-list { display: flex; flex-direction: column; gap: 10px; }
+.acc-item {
+  background: var(--card); border: 1px solid var(--card-border);
+  border-radius: var(--radius); overflow: hidden; transition: border-color .3s;
+}
+.acc-item.open { border-color: var(--accent); }
+.acc-trigger {
+  width: 100%; padding: 18px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: none; border: none; cursor: pointer;
+  color: var(--text); font-family: var(--font-sans); text-align: left;
+}
+.acc-lbl { display: flex; flex-direction: column; gap: 3px; }
+.acc-side { font-size: 10px; font-weight: 700; letter-spacing: 3px; color: var(--accent); }
+.acc-holder { font-family: var(--font-serif); font-size: 15px; color: var(--text); }
+.acc-chev { font-size: 18px; color: var(--accent); transition: transform .3s; line-height: 1; }
+.acc-item.open .acc-chev { transform: rotate(180deg); }
+.acc-body { overflow: hidden; max-height: 0; transition: max-height .38s ease; }
+.acc-item.open .acc-body { max-height: 300px; }
+.acc-content {
+  padding: 0 18px 18px;
+  border-top: 1px solid rgba(216,229,146,.1);
+  padding-top: 14px;
+}
+.acc-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.acc-row:last-of-type { border-bottom: none; }
+.arl { font-size: 12px; color: var(--text-muted); }
+.arv { font-family: var(--font-serif); font-size: 14px; color: var(--text); font-weight: 700; }
+.copy-btn {
+  width: 100%; margin-top: 12px; padding: 11px;
+  background: var(--accent-dim); border: 1px solid var(--accent-border);
+  border-radius: 10px; color: var(--accent);
+  font-size: 13px; font-weight: 700; cursor: pointer;
+  font-family: var(--font-sans); transition: all .22s; letter-spacing: .5px;
+}
+.copy-btn:hover, .copy-btn.done {
+  background: var(--accent); color: var(--bg-dark); border-color: var(--accent);
+}
+
+/* ══════════════════════════════════════
+   9. FOOTER
+══════════════════════════════════════ */
+#footer { padding: 48px 32px 60px; text-align: center; }
+.foot-msg {
+  font-family: var(--font-serif);
+  font-size: 15px; color: var(--text-muted);
+  line-height: 2; margin-bottom: 32px;
+}
+.foot-btns {
+  display: flex; flex-direction: column; gap: 10px;
+  max-width: 280px; margin: 0 auto;
+}
+.share-btn {
+  display: flex; align-items: center; justify-content: center; gap: 9px;
+  padding: 14px; border: none; border-radius: 12px;
+  font-family: var(--font-sans); font-size: 14px; font-weight: 700;
+  cursor: pointer; transition: all .22s; letter-spacing: .5px;
+}
+.share-btn:hover { transform: translateY(-2px); }
+.sb-kakao { background: #FEE500; color: #391B1B; }
+.sb-link  { background: var(--accent); color: var(--bg-dark); }
+.sb-kakao:hover { box-shadow: 0 8px 24px rgba(254,229,0,.35); }
+.sb-link:hover  { box-shadow: 0 8px 24px rgba(var(--accent-rgb),.35); }
+.foot-credit { margin-top: 36px; font-size: 11px; color: var(--text-faint); letter-spacing: 1px; }
+
+/* ══════════════════════════════════════
+   TOAST
+══════════════════════════════════════ */
+.toast {
+  position: fixed; bottom: 80px; left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(71,74,55,.95);
+  border: 1px solid var(--accent-border);
+  color: var(--accent); font-size: 13px; font-weight: 600;
+  padding: 11px 22px; border-radius: 50px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.5);
+  opacity: 0; transition: all .3s;
+  z-index: 9999; pointer-events: none; white-space: nowrap;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ══ 1. HERO ══ -->
+  <section id="hero">
+    <img id="hero-img" src="hero.jpg" alt="웨딩 사진"
+      onerror="this.style.display='none'; document.getElementById('hero-fb').style.display='flex'">
+    <div id="hero-fb" style="display:none;position:absolute;inset:0;
+      background:linear-gradient(160deg,#2e3020,#474a37,#5a5e42);
+      align-items:center;justify-content:center;">
+      <span style="font-size:56px;opacity:.25">📷</span>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">WE ARE GETTING MARRIED</p>
+      <h1 class="hero-names">전준혁<span class="amp">&amp;</span>공연주</h1>
+      <p class="hero-dateline">2026 · 06 · 27 · SAT · 16:00</p>
+    </div>
+    <div class="scroll-ind" onclick="document.getElementById('invitation').scrollIntoView({behavior:'smooth'})">
+      <span>SCROLL</span>
+      <div class="scroll-chev"></div>
+    </div>
+  </section>
+
+  <div class="star-divider"><span>✦ ✦ ✦</span></div>
+
+  <!-- ══ 2. INVITATION ══ -->
+  <section id="invitation">
+    <span class="inv-stars fade-in">✦ ✦ ✦</span>
+    <div class="inv-parents fade-in fd1">
+      <span class="hl">신랑아버지</span>·<span class="hl">신랑어머니</span>의 장남<br>
+      <span class="hl" style="font-size:17px;display:block;margin:4px 0 12px">전준혁</span>
+      <span class="hl">신부아버지</span>·<span class="hl">신부어머니</span>의 장녀<br>
+      <span class="hl" style="font-size:17px;display:block;margin:4px 0 0">공연주</span>
+    </div>
+    <div class="inv-sep fade-in fd2"></div>
+    <p class="inv-msg fade-in fd2">
+      오랜 시간 걸음 지키며<br>서로의 하루가 되어주었습니다.<br><br>
+      이제 부부라는 이름으로<br>같은 방향을 걸어가려 합니다.<br><br>
+      이 뜻깊은 시작의 자리에<br>소중한 분들을 정중히 초대합니다.
+    </p>
+    <p class="inv-sign fade-in fd3">전준혁 · 공연주 드림</p>
+  </section>
+
+  <div class="star-divider"><span>✦ ✦ ✦</span></div>
+
+  <!-- ══ 3. CONTACT ══ -->
+  <section id="contact">
+    <div class="contact-hdr">
+      <span class="stag fade-in">CONTACT</span>
+      <h2 class="stitle fade-in fd1">연락처</h2>
+      <p class="ssub fade-in fd2">소중한 분들께 직접 연락하세요</p>
+    </div>
+    <button class="open-contact-btn fade-in fd3" onclick="openM('mContact')">
+      📞 연락하기
+    </button>
+  </section>
+
+  <!-- Contact Modal -->
+  <div class="modal-ov" id="mContact" onclick="ovClick(event,'mContact')">
+    <div class="bsheet">
+      <div class="sheet-dots"><i></i><i></i><i></i></div>
+      <button class="close-btn" onclick="closeM('mContact')">✕</button>
+      <div class="bhandle"></div>
+      <p class="btitle">연락처</p>
+      <p class="bsub">📞 전화걸기 &nbsp;·&nbsp; 💬 문자보내기</p>
+      <div class="con-cols">
+        <!-- 신랑측 -->
+        <div>
+          <p class="con-col-ttl">신랑측</p>
+          <div class="cp">
+            <div><p class="cp-rel">신랑</p><p class="cp-name">전준혁</p></div>
+            <div class="cp-icons">
+              <a href="tel:010-0000-0000">📞</a>
+              <a href="sms:010-0000-0000">💬</a>
+            </div>
+          </div>
+          <div class="cp">
+            <div><p class="cp-rel">신랑 아버지</p><p class="cp-name">신랑아버지</p></div>
+            <div class="cp-icons">
+              <a href="tel:010-0000-0000">📞</a>
+              <a href="sms:010-0000-0000">💬</a>
+            </div>
+          </div>
+          <div class="cp">
+            <div><p class="cp-rel">신랑 어머니</p><p class="cp-name">신랑어머니</p></div>
+            <div class="cp-icons">
+              <a href="tel:010-0000-0000">📞</a>
+              <a href="sms:010-0000-0000">💬</a>
+            </div>
+          </div>
+        </div>
+        <!-- 신부측 -->
+        <div>
+          <p class="con-col-ttl">신부측</p>
+          <div class="cp">
+            <div><p class="cp-rel">신부</p><p class="cp-name">공연주</p></div>
+            <div class="cp-icons">
+              <a href="tel:010-0000-0000">📞</a>
+              <a href="sms:010-0000-0000">💬</a>
+            </div>
+          </div>
+          <div class="cp">
+            <div><p class="cp-rel">신부 아버지</p><p class="cp-name">신부아버지</p></div>
+            <div class="cp-icons">
+              <a href="tel:010-0000-0000">📞</a>
+              <a href="sms:010-0000-0000">💬</a>
+            </div>
+          </div>
+          <div class="cp">
+            <div><p class="cp-rel">신부 어머니</p><p class="cp-name">신부어머니</p></div>
+            <div class="cp-icons">
+              <a href="tel:010-0000-0000">📞</a>
+              <a href="sms:010-0000-0000">💬</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="star-divider"><span>✦ ✦ ✦</span></div>
+
+  <!-- ══ 4. GALLERY ══ -->
+  <section id="gallery">
+    <div class="gal-hdr">
+      <span class="stag fade-in">GALLERY</span>
+      <h2 class="stitle fade-in fd1">우리의 이야기</h2>
+    </div>
+    <div class="gal-track" id="galTrack">
+      <div class="gal-card">
+        <img src="갤러리1.jpg" alt="갤러리 1"
+          onerror="this.parentElement.style.background='linear-gradient(135deg,#3a3d2b,#474a37)';this.style.display='none'">
+      </div>
+      <div class="gal-card">
+        <img src="갤러리2.jpg" alt="갤러리 2"
+          onerror="this.parentElement.style.background='linear-gradient(135deg,#474a37,#5a5e42)';this.style.display='none'">
+      </div>
+      <div class="gal-card">
+        <img src="갤러리3.jpg" alt="갤러리 3"
+          onerror="this.parentElement.style.background='linear-gradient(135deg,#5a5e42,#3a3d2b)';this.style.display='none'">
+      </div>
+    </div>
+    <div class="gal-dots">
+      <div class="gdot active" onclick="scrollGal(0)"></div>
+      <div class="gdot" onclick="scrollGal(1)"></div>
+      <div class="gdot" onclick="scrollGal(2)"></div>
+    </div>
+  </section>
+
+  <div class="star-divider"><span>✦ ✦ ✦</span></div>
+
+  <!-- ══ 5. DATE & COUNTDOWN ══ -->
+  <section id="countdown">
+    <span class="stag fade-in">DATE</span>
+    <p class="dday-couple fade-in fd1">전준혁 <span class="heart">❤️</span> 공연주</p>
+    <p class="dday-msg fade-in fd1">결혼식이<br><span class="dnum" id="ddayN">—</span>일 남았습니다</p>
+    <p class="dday-sub fade-in fd2">2026년 6월 27일 토요일 오후 4시</p>
+    <div class="cal-box fade-in fd2" id="calBox"></div>
+    <div class="timer-row fade-in fd3">
+      <div class="tbox"><div class="tnum" id="tD">00</div><div class="tlbl">DAYS</div></div>
+      <div class="tbox"><div class="tnum" id="tH">00</div><div class="tlbl">HOURS</div></div>
+      <div class="tbox"><div class="tnum" id="tM">00</div><div class="tlbl">MINS</div></div>
+      <div class="tbox"><div class="tnum" id="tS">00</div><div class="tlbl">SECS</div></div>
+    </div>
+  </section>
+
+  <div class="star-divider"><span>✦ ✦ ✦</span></div>
+
+  <!-- ══ 6. DIRECTIONS ══ -->
+  <section id="directions">
+    <div class="dir-hdr">
+      <span class="stag fade-in">LOCATION</span>
+      <h2 class="stitle fade-in fd1">오시는 길</h2>
+    </div>
+
+    <!-- 카카오맵 임베드 or 약도 이미지 -->
+    <div class="map-wrap fade-in fd1">
+      <!--
+        카카오맵 임베드 사용 시 아래 주석 해제 후 좌표 교체:
+        <iframe src="https://map.kakao.com/link/map/CA웨딩컨벤션,36.7897,127.1052" allowfullscreen></iframe>
+
+        약도 이미지 사용 시:
+        <img src="약도.jpg" alt="약도" style="width:100%;height:100%;object-fit:cover;display:block">
+      -->
+      <div class="map-ph">
+        <span class="mico">🗺️</span>
+        <p>CA웨딩컨벤션<br>충남 아산시 배방읍 희망로 100<br>KTX천안아산역 역사내 2층</p>
+      </div>
+    </div>
+
+    <div class="addr-card fade-in fd2">
+      <p class="venue-name">CA웨딩컨벤션 루체홀</p>
+      <p class="venue-addr">
+        충남 아산시 배방읍 희망로 100 (장재리 364-4)<br>
+        KTX천안아산역 역사내 2층
+      </p>
+      <div class="map-btns">
+        <a href="https://map.naver.com/v5/search/CA웨딩컨벤션" target="_blank" class="mbtn naver">🗺 네이버 지도</a>
+        <a href="https://map.kakao.com/link/search/CA웨딩컨벤션" target="_blank" class="mbtn kakao">📍 카카오 지도</a>
+      </div>
+    </div>
+
+    <div class="trans-list fade-in fd3">
+      <div class="trans-row">
+        <div class="tr-ico">🚄</div>
+        <div>
+          <p class="tr-t">KTX · SRT</p>
+          <p class="tr-d">KTX천안아산역 역사 내 2층 — 하차 후 바로 이동 가능</p>
+        </div>
+      </div>
+      <div class="trans-row">
+        <div class="tr-ico">🚂</div>
+        <div>
+          <p class="tr-t">일반 열차</p>
+          <p class="tr-d">새마을호 · 무궁화호 — 아산역 하차<br>1호선 아산역 하차 후 이동</p>
+        </div>
+      </div>
+      <div class="trans-row">
+        <div class="tr-ico">🚌</div>
+        <div>
+          <p class="tr-t">버스 (천안방면)</p>
+          <p class="tr-d">
+            순환 5번 : 호서대종점 → 아산역<br>
+            20번 · 13번 : 단대병원 → 천안아산역<br>
+            19번 : 직산 대림아파트 → 천안아산역<br>
+            90번 : 고속버스터미널 → 천안아산역<br>
+            990번 : 종합터미널 → 천안아산역
+          </p>
+        </div>
+      </div>
+      <div class="trans-row">
+        <div class="tr-ico">🚗</div>
+        <div>
+          <p class="tr-t">자가용</p>
+          <p class="tr-d">
+            <strong style="color:var(--accent)">천안에서</strong> : 천안IC → 시청 종합운동장 방향 → 시청방향 → 아산역방향 → KTX천안아산역<br>
+            <strong style="color:var(--accent)">남천안에서</strong> : 남천안TG(논산천안간고속도로) → 남천안IC → 구룡삼거리(천안대로) → 청삼교차로 → 남부대로 → 용암교 → 신방삼거리 → 매곡삼거리(21번국도) → KTX천안아산역
+          </p>
+        </div>
+      </div>
+      <div class="trans-row">
+        <div class="tr-ico">🅿️</div>
+        <div>
+          <p class="tr-t">주차 안내</p>
+          <p class="tr-d">KTX역사내 1층 또는 광장1, 광장2 주차장 및 주변 해당 주차장 이용 가능<br>대중교통(KTX·SRT·전철) 이용 시 보다 편리합니다</p>
+        </div>
+      </div>
+      <div class="trans-row">
+        <div class="tr-ico">🚌</div>
+        <div>
+          <p class="tr-t">고속버스 (서울강남→천안아산)</p>
+          <p class="tr-d">
+            노선 : 서울(경부) ~ 아산(온양) 경유<br>
+            승차장소 : 와이시티 107동앞 고속버스 14번정류장<br>
+            승차권 구매 : 직접구매(세븐일레븐 편의점 앞 자동발매기) 또는 고속버스모바일 앱 → 천안아산역 검색
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="star-divider"><span>✦ ✦ ✦</span></div>
+
+  <!-- ══ 7. VENUE INFO ══ -->
+  <section id="venue">
+    <div class="venue-hdr">
+      <span class="stag fade-in">VENUE</span>
+      <h2 class="stitle fade-in fd1">예식장 안내</h2>
+    </div>
+    <div class="venue-photos fade-in fd1">
+      <div class="vphoto">
+        <img src="안내1.jpg" alt="안내 1"
+          onerror="this.parentElement.style.background='linear-gradient(135deg,#3a3d2b,#474a37)';this.style.display='none'">
+      </div>
+      <div class="vphoto">
+        <img src="안내2.jpg" alt="안내 2"
+          onerror="this.parentElement.style.background='linear-gradient(135deg,#474a37,#5a5e42)';this.style.display='none'">
+      </div>
+      <div class="vphoto">
+        <img src="안내3.jpg" alt="안내 3"
+          onerror="this.parentElement.style.background='linear-gradient(135deg,#5a5e42,#3a3d2b)';this.style.display='none'">
+      </div>
+    </div>
+    <div class="vinfo-card fade-in fd2">
+      <div class="vinfo-row">
+        <div class="vnum">1</div>
+        <div>
+          <p class="vi-t">안내 1 제목</p>
+          <p class="vi-d">안내 1 내용을 여기에 입력해주세요.<br>예: 식사 안내, 주차 안내 등</p>
+        </div>
+      </div>
+      <div class="vinfo-row">
+        <div class="vnum">2</div>
+        <div>
+          <p class="vi-t">안내 2 제목</p>
+          <p class="vi-d">안내 2 내용을 여기에 입력해주세요.<br>예: 드레스코드, 방명록 위치 등</p>
+        </div>
+      </div>
+      <div class="vinfo-row">
+        <div class="vnum">3</div>
+        <div>
+          <p class="vi-t">안내 3 제목</p>
+          <p class="vi-d">안내 3 내용을 여기에 입력해주세요.<br>예: 신혼여행, 기타 안내 등</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="star-divider"><span>✦ ✦ ✦</span></div>
+
+  <!-- ══ 8. ACCOUNT (축의금) ══ -->
+  <section id="account">
+    <div class="acct-hdr">
+      <span class="stag fade-in">ACCOUNT</span>
+      <h2 class="stitle fade-in fd1">마음 전하실 곳</h2>
+      <p class="ssub fade-in fd2">따뜻한 마음에 감사드립니다</p>
+    </div>
+    <div class="acc-list">
+
+      <div class="acc-item fade-in fd1">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <div class="acc-lbl">
+            <span class="acc-side">신랑측</span>
+            <span class="acc-holder">전준혁</span>
+          </div>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-content">
+            <div class="acc-row"><span class="arl">은행</span><span class="arv">신한은행</span></div>
+            <div class="acc-row"><span class="arl">계좌번호</span><span class="arv" id="ac1">110-000-000000</span></div>
+            <div class="acc-row"><span class="arl">예금주</span><span class="arv">전준혁</span></div>
+            <button class="copy-btn" onclick="copyAcct('ac1',this)">계좌번호 복사하기</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item fade-in fd2">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <div class="acc-lbl">
+            <span class="acc-side">신랑측</span>
+            <span class="acc-holder">신랑아버지</span>
+          </div>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-content">
+            <div class="acc-row"><span class="arl">은행</span><span class="arv">국민은행</span></div>
+            <div class="acc-row"><span class="arl">계좌번호</span><span class="arv" id="ac2">123-456-789000</span></div>
+            <div class="acc-row"><span class="arl">예금주</span><span class="arv">신랑아버지</span></div>
+            <button class="copy-btn" onclick="copyAcct('ac2',this)">계좌번호 복사하기</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item fade-in fd3">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <div class="acc-lbl">
+            <span class="acc-side">신부측</span>
+            <span class="acc-holder">공연주</span>
+          </div>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-content">
+            <div class="acc-row"><span class="arl">은행</span><span class="arv">우리은행</span></div>
+            <div class="acc-row"><span class="arl">계좌번호</span><span class="arv" id="ac3">1002-000-000000</span></div>
+            <div class="acc-row"><span class="arl">예금주</span><span class="arv">공연주</span></div>
+            <button class="copy-btn" onclick="copyAcct('ac3',this)">계좌번호 복사하기</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item fade-in fd4">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <div class="acc-lbl">
+            <span class="acc-side">신부측</span>
+            <span class="acc-holder">신부아버지</span>
+          </div>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-content">
+            <div class="acc-row"><span class="arl">은행</span><span class="arv">하나은행</span></div>
+            <div class="acc-row"><span class="arl">계좌번호</span><span class="arv" id="ac4">000-0000-0000-00</span></div>
+            <div class="acc-row"><span class="arl">예금주</span><span class="arv">신부아버지</span></div>
+            <button class="copy-btn" onclick="copyAcct('ac4',this)">계좌번호 복사하기</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="star-divider"><span>✦ ✦ ✦</span></div>
+
+  <!-- ══ 9. FOOTER ══ -->
+  <footer id="footer">
+    <p class="foot-msg fade-in">
+      함께해 주셔서 감사합니다.<br>소중한 발걸음 기다리겠습니다.
+    </p>
+    <div class="foot-btns fade-in fd1">
+      <button class="share-btn sb-kakao" onclick="shareKakao()">💛 카카오톡으로 공유하기</button>
+      <button class="share-btn sb-link"  onclick="copyLink()">🔗 링크 복사하기</button>
+    </div>
+    <p class="foot-credit fade-in fd2">전준혁 ♥ 공연주 · 2026</p>
+  </footer>
+
+</div><!-- /#app -->
+
+<div class="toast" id="toast"></div>
+
+<!-- ══════════════════════ JS ══════════════════════ -->
+<script>
+/* ─── Config ─── */
+const W = { y:2026, mo:6, d:27, h:16, mi:0,
+            groom:'전준혁', bride:'공연주' };
+
+/* ─── Fade-in observer ─── */
+const obs = new IntersectionObserver(es => {
+  es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+/* ─── Modal ─── */
+function openM(id){ document.getElementById(id).classList.add('active'); document.body.style.overflow='hidden'; }
+function closeM(id){ document.getElementById(id).classList.remove('active'); document.body.style.overflow=''; }
+function ovClick(e,id){ if(e.target.classList.contains('modal-ov')) closeM(id); }
+document.addEventListener('keydown', e => {
+  if(e.key==='Escape') document.querySelectorAll('.modal-ov.active').forEach(m=>{
+    m.classList.remove('active'); document.body.style.overflow='';
+  });
+});
+
+/* ─── Accordion ─── */
+function toggleAcc(btn){
+  const item = btn.closest('.acc-item');
+  const was = item.classList.contains('open');
+  document.querySelectorAll('.acc-item.open').forEach(i=>i.classList.remove('open'));
+  if(!was) item.classList.add('open');
+}
+
+/* ─── Copy account ─── */
+function copyAcct(id, btn){
+  const txt = document.getElementById(id).textContent.trim();
+  const done = ()=>{
+    btn.textContent='✓ 복사되었습니다'; btn.classList.add('done');
+    showToast('계좌번호가 복사되었습니다 ✓');
+    setTimeout(()=>{ btn.textContent='계좌번호 복사하기'; btn.classList.remove('done'); }, 2200);
+  };
+  if(navigator.clipboard){ navigator.clipboard.writeText(txt).then(done).catch(()=>fallbackCopy(txt,done)); }
+  else fallbackCopy(txt, done);
+}
+function fallbackCopy(txt, cb){
+  const ta=document.createElement('textarea'); ta.value=txt;
+  document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+  if(cb) cb();
+}
+
+/* ─── Toast ─── */
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2300);
+}
+
+/* ─── Gallery dots ─── */
+const galTrack = document.getElementById('galTrack');
+const gdots = document.querySelectorAll('.gdot');
+function scrollGal(i){ galTrack.querySelectorAll('.gal-card')[i]?.scrollIntoView({behavior:'smooth',inline:'start',block:'nearest'}); }
+galTrack.addEventListener('scroll', ()=>{
+  const i = Math.round(galTrack.scrollLeft / (galTrack.clientWidth * 0.56));
+  gdots.forEach((d,j)=>d.classList.toggle('active',j===i));
+});
+
+/* ─── Calendar ─── */
+(function buildCal(){
+  const { y, mo, d } = W;
+  const names = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+  const box = document.getElementById('calBox');
+  box.innerHTML = `<p class="cal-month">${y}년 ${names[mo-1]}</p>
+    <div class="cal-wk">
+      <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+    </div>`;
+  const grid = document.createElement('div'); grid.className='cal-grid';
+  const first = new Date(y, mo-1, 1).getDay();
+  const last  = new Date(y, mo, 0).getDate();
+  const pLast = new Date(y, mo-1, 0).getDate();
+  for(let i=first-1;i>=0;i--){
+    const c=document.createElement('div'); c.className='cday other'; c.textContent=pLast-i; grid.appendChild(c);
+  }
+  for(let n=1;n<=last;n++){
+    const dow=new Date(y,mo-1,n).getDay();
+    const c=document.createElement('div');
+    c.className='cday'+(dow===0?' sun':dow===6?' sat':'')+(n===d?' wedding':'');
+    c.textContent=n; grid.appendChild(c);
+  }
+  const total=first+last, rem=total%7===0?0:7-total%7;
+  for(let i=1;i<=rem;i++){
+    const c=document.createElement('div'); c.className='cday other'; c.textContent=i; grid.appendChild(c);
+  }
+  box.appendChild(grid);
+})();
+
+/* ─── Countdown ─── */
+const target = new Date(W.y, W.mo-1, W.d, W.h, W.mi);
+function tick(){
+  const now=new Date(), diff=target-now;
+  const ddEl=document.getElementById('ddayN');
+  if(diff<=0){
+    ddEl.textContent='D-DAY';
+    ['tD','tH','tM','tS'].forEach(id=>document.getElementById(id).textContent='00');
+    return;
+  }
+  const d=Math.floor(diff/86400000);
+  const h=Math.floor((diff%86400000)/3600000);
+  const m=Math.floor((diff%3600000)/60000);
+  const s=Math.floor((diff%60000)/1000);
+  ddEl.textContent=d;
+  document.getElementById('tD').textContent=String(d).padStart(2,'0');
+  document.getElementById('tH').textContent=String(h).padStart(2,'0');
+  document.getElementById('tM').textContent=String(m).padStart(2,'0');
+  document.getElementById('tS').textContent=String(s).padStart(2,'0');
+}
+tick(); setInterval(tick,1000);
+
+/* ─── Share ─── */
+function copyLink(){
+  fallbackCopy(location.href, ()=>showToast('링크가 복사되었습니다 💛'));
+  navigator.clipboard?.writeText(location.href).then(()=>showToast('링크가 복사되었습니다 💛'));
+}
+function shareKakao(){
+  if(typeof Kakao!=='undefined'&&Kakao.Share){
+    Kakao.Share.sendDefault({
+      objectType:'feed',
+      content:{
+        title:`${W.groom} ♥ ${W.bride} 결혼합니다`,
+        description:`${W.y}년 ${W.mo}월 ${W.d}일`,
+        imageUrl: location.origin+'/hero.jpg',
+        link:{ mobileWebUrl:location.href, webUrl:location.href }
+      }
+    });
+  } else {
+    copyLink();
+    showToast('카카오 SDK 연결 후 공유 가능합니다');
+  }
+}
+</script>
+</body>
+</html>
