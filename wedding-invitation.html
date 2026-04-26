@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>결혼합니다 전준혁 & 공연주</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
 
 /* ──────────────────────────────────────
    CSS VARIABLES
@@ -14,19 +14,19 @@
   --bg:            #ffffff;
   --bg-dark:       #f5f5f0;
   --bg-darker:     #ebebeb;
-  --accent:        #c27b5e;
-  --accent-rgb:    194, 123, 94;
-  --accent-dim:    rgba(194,123,94,0.12);
-  --accent-mid:    rgba(194,123,94,0.25);
-  --accent-border: rgba(194,123,94,0.45);
+  --accent:        #87817b;
+  --accent-rgb:    135, 129, 123;
+  --accent-dim:    rgba(135,129,123,0.12);
+  --accent-mid:    rgba(135,129,123,0.25);
+  --accent-border: rgba(135,129,123,0.45);
   --text:          #3c3c3c;
   --text-muted:    rgba(60,60,60,0.6);
   --text-faint:    rgba(60,60,60,0.35);
   --card:          rgba(0,0,0,0.03);
   --card-border:   rgba(0,0,0,0.08);
   --radius:        16px;
-  --font-serif:    'Pretendard', sans-serif;
-  --font-sans:     'Pretendard', sans-serif;
+  --font-serif:    'NanumSquare', sans-serif;
+  --font-sans:     'NanumSquare', sans-serif;
 }
 
 /* ──────────────────────────────────────
@@ -152,12 +152,12 @@ body {
 }
 .hero-names {
   font-family: var(--font-serif);
-  font-size: 34px; font-weight: 700;
+  font-size: 34px; font-weight: 300;
   color: #fff; line-height: 1.25;
   text-shadow: 0 2px 20px rgba(0,0,0,0.4);
   margin-bottom: 10px;
 }
-.hero-names .amp { color: var(--accent); font-size: 28px; margin: 0 8px; }
+.hero-names .amp { color: #e05252; font-size: 22px; margin: 0 10px; position: relative; top: -3px; }
 .hero-dateline {
   font-size: 12px; font-weight: 300;
   color: rgba(255,255,255,0.85);
@@ -216,12 +216,6 @@ body {
   font-size: 15.5px; line-height: 2.4;
   color: var(--text); position: relative; padding: 0 4px;
 }
-.inv-msg::before {
-  content: '\201C';
-  position: absolute; top: -20px; left: -4px;
-  font-size: 52px; color: var(--accent);
-  opacity: 0.3; font-family: Georgia, serif; line-height: 1;
-}
 .inv-sign {
   margin-top: 30px;
   font-family: var(--font-serif);
@@ -239,7 +233,7 @@ body {
 .contact-hdr { margin-bottom: 18px; }
 .open-contact-btn {
   display: inline-flex; align-items: center; gap: 9px;
-  background: var(--accent); color: #ffffff;
+  background: #2c2c2c; color: #ffffff;
   border: none; border-radius: 50px;
   padding: 14px 36px;
   font-family: var(--font-sans); font-size: 14px; font-weight: 700;
@@ -247,9 +241,11 @@ body {
   transition: all .22s;
 }
 .open-contact-btn:hover {
+  background: #444444;
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(var(--accent-rgb),.45);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.25);
 }
+.open-contact-btn svg { flex-shrink: 0; }
 
 /* ──────────────────────────────────────
    MODAL SHARED
@@ -495,7 +491,15 @@ body {
 ══════════════════════════════════════ */
 #account { padding: 52px 32px; }
 .acct-hdr { text-align: center; margin-bottom: 24px; }
-.acc-list { display: flex; flex-direction: column; gap: 10px; }
+.acc-list { display: flex; flex-direction: column; gap: 24px; }
+.acc-group { display: flex; flex-direction: column; gap: 10px; }
+.acc-group-title {
+  font-size: 11px; font-weight: 700; letter-spacing: 3px;
+  color: var(--accent); text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--accent-border);
+  margin-bottom: 2px;
+}
 .acc-item {
   background: #fafafa; border: 1px solid rgba(0,0,0,0.08);
   border-radius: var(--radius); overflow: hidden; transition: border-color .3s;
@@ -591,12 +595,12 @@ body {
     <div id="hero-fb" style="display:none;position:absolute;inset:0;
       background:linear-gradient(160deg,#e8e8e8,#d0d0d0,#c8c8c8);
       align-items:center;justify-content:center;">
-      <span style="font-size:56px;opacity:.25">📷</span>
+      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:.25"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <p class="hero-eyebrow">WE ARE GETTING MARRIED</p>
-      <h1 class="hero-names">전준혁<span class="amp">&amp;</span>공연주</h1>
+      <h1 class="hero-names">junhyeok<span class="amp">/</span>yeonjoo</h1>
       <p class="hero-dateline">2026 · 06 · 27 · SAT · 16:00</p>
     </div>
     <div class="scroll-ind" onclick="document.getElementById('invitation').scrollIntoView({behavior:'smooth'})">
@@ -632,7 +636,8 @@ body {
       <p class="ssub fade-in fd2">소중한 분들께 직접 연락하세요</p>
     </div>
     <button class="open-contact-btn fade-in fd3" onclick="openM('mContact')">
-      📞 연락하기
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.62-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      연락하기
     </button>
   </section>
 
@@ -643,7 +648,7 @@ body {
       <button class="close-btn" onclick="closeM('mContact')">✕</button>
       <div class="bhandle"></div>
       <p class="btitle">연락처</p>
-      <p class="bsub">📞 전화걸기 &nbsp;·&nbsp; 💬 문자보내기</p>
+      <p class="bsub"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-1px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.62-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 전화걸기 &nbsp;·&nbsp; <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-1px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 문자보내기</p>
       <div class="con-cols">
         <!-- 신랑측 -->
         <div>
@@ -651,22 +656,22 @@ body {
           <div class="cp">
             <div><p class="cp-rel">신랑</p><p class="cp-name">전준혁</p></div>
             <div class="cp-icons">
-              <a href="tel:010-0000-0000">📞</a>
-              <a href="sms:010-0000-0000">💬</a>
+              <a href="tel:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.62-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+              <a href="sms:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
             </div>
           </div>
           <div class="cp">
             <div><p class="cp-rel">신랑 아버지</p><p class="cp-name">전일수</p></div>
             <div class="cp-icons">
-              <a href="tel:010-0000-0000">📞</a>
-              <a href="sms:010-0000-0000">💬</a>
+              <a href="tel:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.62-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+              <a href="sms:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
             </div>
           </div>
           <div class="cp">
             <div><p class="cp-rel">신랑 어머니</p><p class="cp-name">박은주</p></div>
             <div class="cp-icons">
-              <a href="tel:010-0000-0000">📞</a>
-              <a href="sms:010-0000-0000">💬</a>
+              <a href="tel:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.62-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+              <a href="sms:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
             </div>
           </div>
         </div>
@@ -676,22 +681,22 @@ body {
           <div class="cp">
             <div><p class="cp-rel">신부</p><p class="cp-name">공연주</p></div>
             <div class="cp-icons">
-              <a href="tel:010-0000-0000">📞</a>
-              <a href="sms:010-0000-0000">💬</a>
+              <a href="tel:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.62-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+              <a href="sms:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
             </div>
           </div>
           <div class="cp">
             <div><p class="cp-rel">신부 아버지</p><p class="cp-name">공상현</p></div>
             <div class="cp-icons">
-              <a href="tel:010-0000-0000">📞</a>
-              <a href="sms:010-0000-0000">💬</a>
+              <a href="tel:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.62-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+              <a href="sms:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
             </div>
           </div>
           <div class="cp">
             <div><p class="cp-rel">신부 어머니</p><p class="cp-name">이만표</p></div>
             <div class="cp-icons">
-              <a href="tel:010-0000-0000">📞</a>
-              <a href="sms:010-0000-0000">💬</a>
+              <a href="tel:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.62-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+              <a href="sms:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
             </div>
           </div>
         </div>
@@ -704,7 +709,6 @@ body {
   <section id="gallery">
     <div class="gal-hdr">
       <span class="stag fade-in">GALLERY</span>
-      <h2 class="stitle fade-in fd1">우리의 이야기</h2>
     </div>
     <div class="gal-track" id="galTrack">
       <div class="gal-card">
@@ -766,7 +770,7 @@ body {
   <!-- ══ 5. DATE & COUNTDOWN ══ -->
   <section id="countdown">
     <span class="stag fade-in">DATE</span>
-    <p class="dday-couple fade-in fd1">전준혁 <span class="heart">❤️</span> 공연주</p>
+    <p class="dday-couple fade-in fd1">전준혁 <span class="heart"><svg width="15" height="15" viewBox="0 0 24 24" fill="#e05252" stroke="none" aria-hidden="true" style="vertical-align:-2px"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span> 공연주</p>
     <p class="dday-msg fade-in fd1">결혼식이<br><span class="dnum" id="ddayN">—</span>일 남았습니다</p>
     <p class="dday-sub fade-in fd2">2026년 6월 27일 토요일 오후 4시</p>
     <div class="cal-box fade-in fd2" id="calBox"></div>
@@ -793,28 +797,28 @@ body {
         KTX천안아산역 역사내 2층
       </p>
       <div class="map-btns">
-        <a href="https://map.naver.com/v5/search/CA웨딩컨벤션" target="_blank" class="mbtn naver">🗺 네이버 지도</a>
-        <a href="https://map.kakao.com/link/search/CA웨딩컨벤션" target="_blank" class="mbtn kakao">📍 카카오 지도</a>
+        <a href="https://map.naver.com/v5/search/CA웨딩컨벤션" target="_blank" class="mbtn naver"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> 네이버 지도</a>
+        <a href="https://map.kakao.com/link/search/CA웨딩컨벤션" target="_blank" class="mbtn kakao"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> 카카오 지도</a>
       </div>
     </div>
 
     <div class="trans-list fade-in fd3">
       <div class="trans-row">
-        <div class="tr-ico">🚄</div>
+        <div class="tr-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="13" rx="2"/><path d="M4 11h16M12 3v8"/><circle cx="8.5" cy="19" r="1.5"/><circle cx="15.5" cy="19" r="1.5"/><path d="M9.5 16l-1 3M14.5 16l1 3"/></svg></div>
         <div>
           <p class="tr-t">KTX · SRT</p>
           <p class="tr-d">KTX천안아산역 역사 내 2층 — 하차 후 바로 이동 가능</p>
         </div>
       </div>
       <div class="trans-row">
-        <div class="tr-ico">🚂</div>
+        <div class="tr-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="13" rx="2"/><path d="M4 9h16M4 13h16"/><circle cx="8.5" cy="19" r="1.5"/><circle cx="15.5" cy="19" r="1.5"/><path d="M9.5 16l-1 3M14.5 16l1 3"/></svg></div>
         <div>
           <p class="tr-t">일반 열차</p>
           <p class="tr-d">새마을호 · 무궁화호 — 아산역 하차<br>1호선 아산역 하차 후 이동</p>
         </div>
       </div>
       <div class="trans-row">
-        <div class="tr-ico">🚌</div>
+        <div class="tr-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6v6M15 6v6M2 12h19.6M18 18h3s1-17-4-17H7C2 1 3 18 3 18h3"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div>
         <div>
           <p class="tr-t">버스 (천안방면)</p>
           <p class="tr-d">
@@ -827,7 +831,7 @@ body {
         </div>
       </div>
       <div class="trans-row">
-        <div class="tr-ico">🚗</div>
+        <div class="tr-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V9l3-6h13l3 6v6a2 2 0 0 1-2 2h-2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg></div>
         <div>
           <p class="tr-t">자가용</p>
           <p class="tr-d">
@@ -837,14 +841,14 @@ body {
         </div>
       </div>
       <div class="trans-row">
-        <div class="tr-ico">🅿️</div>
+        <div class="tr-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg></div>
         <div>
           <p class="tr-t">주차 안내</p>
           <p class="tr-d">KTX역사내 1층 또는 광장1, 광장2 주차장 및 주변 해당 주차장 이용 가능<br>대중교통(KTX·SRT·전철) 이용 시 보다 편리합니다</p>
         </div>
       </div>
       <div class="trans-row">
-        <div class="tr-ico">🚌</div>
+        <div class="tr-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6v6M15 6v6M2 12h19.6M18 18h3s1-17-4-17H7C2 1 3 18 3 18h3"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div>
         <div>
           <p class="tr-t">고속버스 (서울강남→천안아산)</p>
           <p class="tr-d">
@@ -867,110 +871,102 @@ body {
     </div>
     <div class="acc-list">
 
-      <div class="acc-item fade-in fd1">
-        <button class="acc-trigger" onclick="toggleAcc(this)">
-          <div class="acc-lbl">
-            <span class="acc-side">신랑측</span>
-            <span class="acc-holder">전준혁</span>
+      <!-- 신랑측 그룹 -->
+      <div class="acc-group fade-in fd1">
+        <p class="acc-group-title">신랑측</p>
+
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <div class="acc-lbl"><span class="acc-holder">전준혁</span></div>
+            <span class="acc-chev">▾</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">
+              <div class="acc-row"><span class="arl">은행</span><span class="arv">신한은행</span></div>
+              <div class="acc-row"><span class="arl">계좌번호</span><span class="arv" id="ac1">110-000-000000</span></div>
+              <div class="acc-row"><span class="arl">예금주</span><span class="arv">전준혁</span></div>
+              <button class="copy-btn" onclick="copyAcct('ac1',this)">계좌번호 복사하기</button>
+            </div>
           </div>
-          <span class="acc-chev">▾</span>
-        </button>
-        <div class="acc-body">
-          <div class="acc-content">
-            <div class="acc-row"><span class="arl">은행</span><span class="arv">신한은행</span></div>
-            <div class="acc-row"><span class="arl">계좌번호</span><span class="arv" id="ac1">110-000-000000</span></div>
-            <div class="acc-row"><span class="arl">예금주</span><span class="arv">전준혁</span></div>
-            <button class="copy-btn" onclick="copyAcct('ac1',this)">계좌번호 복사하기</button>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <div class="acc-lbl"><span class="acc-holder">전일수</span></div>
+            <span class="acc-chev">▾</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">
+              <div class="acc-row"><span class="arl">은행</span><span class="arv">국민은행</span></div>
+              <div class="acc-row"><span class="arl">계좌번호</span><span class="arv" id="ac2">123-456-789000</span></div>
+              <div class="acc-row"><span class="arl">예금주</span><span class="arv">전일수</span></div>
+              <button class="copy-btn" onclick="copyAcct('ac2',this)">계좌번호 복사하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <div class="acc-lbl"><span class="acc-holder">박은주</span></div>
+            <span class="acc-chev">▾</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">
+              <div class="acc-row"><span class="arl">은행</span><span class="arv">농협은행</span></div>
+              <div class="acc-row"><span class="arl">계좌번호</span><span class="arv" id="ac5">301-0000-0000-00</span></div>
+              <div class="acc-row"><span class="arl">예금주</span><span class="arv">박은주</span></div>
+              <button class="copy-btn" onclick="copyAcct('ac5',this)">계좌번호 복사하기</button>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="acc-item fade-in fd2">
-        <button class="acc-trigger" onclick="toggleAcc(this)">
-          <div class="acc-lbl">
-            <span class="acc-side">신랑측</span>
-            <span class="acc-holder">전일수</span>
-          </div>
-          <span class="acc-chev">▾</span>
-        </button>
-        <div class="acc-body">
-          <div class="acc-content">
-            <div class="acc-row"><span class="arl">은행</span><span class="arv">국민은행</span></div>
-            <div class="acc-row"><span class="arl">계좌번호</span><span class="arv" id="ac2">123-456-789000</span></div>
-            <div class="acc-row"><span class="arl">예금주</span><span class="arv">전일수</span></div>
-            <button class="copy-btn" onclick="copyAcct('ac2',this)">계좌번호 복사하기</button>
+      <!-- 신부측 그룹 -->
+      <div class="acc-group fade-in fd2">
+        <p class="acc-group-title">신부측</p>
+
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <div class="acc-lbl"><span class="acc-holder">공연주</span></div>
+            <span class="acc-chev">▾</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">
+              <div class="acc-row"><span class="arl">은행</span><span class="arv">우리은행</span></div>
+              <div class="acc-row"><span class="arl">계좌번호</span><span class="arv" id="ac3">1002-000-000000</span></div>
+              <div class="acc-row"><span class="arl">예금주</span><span class="arv">공연주</span></div>
+              <button class="copy-btn" onclick="copyAcct('ac3',this)">계좌번호 복사하기</button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="acc-item fade-in fd3">
-        <button class="acc-trigger" onclick="toggleAcc(this)">
-          <div class="acc-lbl">
-            <span class="acc-side">신랑측</span>
-            <span class="acc-holder">박은주</span>
-          </div>
-          <span class="acc-chev">▾</span>
-        </button>
-        <div class="acc-body">
-          <div class="acc-content">
-            <div class="acc-row"><span class="arl">은행</span><span class="arv">농협은행</span></div>
-            <div class="acc-row"><span class="arl">계좌번호</span><span class="arv" id="ac5">301-0000-0000-00</span></div>
-            <div class="acc-row"><span class="arl">예금주</span><span class="arv">박은주</span></div>
-            <button class="copy-btn" onclick="copyAcct('ac5',this)">계좌번호 복사하기</button>
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <div class="acc-lbl"><span class="acc-holder">공상현</span></div>
+            <span class="acc-chev">▾</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">
+              <div class="acc-row"><span class="arl">은행</span><span class="arv">하나은행</span></div>
+              <div class="acc-row"><span class="arl">계좌번호</span><span class="arv" id="ac4">000-0000-0000-00</span></div>
+              <div class="acc-row"><span class="arl">예금주</span><span class="arv">공상현</span></div>
+              <button class="copy-btn" onclick="copyAcct('ac4',this)">계좌번호 복사하기</button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="acc-item fade-in fd4">
-        <button class="acc-trigger" onclick="toggleAcc(this)">
-          <div class="acc-lbl">
-            <span class="acc-side">신부측</span>
-            <span class="acc-holder">공연주</span>
-          </div>
-          <span class="acc-chev">▾</span>
-        </button>
-        <div class="acc-body">
-          <div class="acc-content">
-            <div class="acc-row"><span class="arl">은행</span><span class="arv">우리은행</span></div>
-            <div class="acc-row"><span class="arl">계좌번호</span><span class="arv" id="ac3">1002-000-000000</span></div>
-            <div class="acc-row"><span class="arl">예금주</span><span class="arv">공연주</span></div>
-            <button class="copy-btn" onclick="copyAcct('ac3',this)">계좌번호 복사하기</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="acc-item fade-in fd5">
-        <button class="acc-trigger" onclick="toggleAcc(this)">
-          <div class="acc-lbl">
-            <span class="acc-side">신부측</span>
-            <span class="acc-holder">공상현</span>
-          </div>
-          <span class="acc-chev">▾</span>
-        </button>
-        <div class="acc-body">
-          <div class="acc-content">
-            <div class="acc-row"><span class="arl">은행</span><span class="arv">하나은행</span></div>
-            <div class="acc-row"><span class="arl">계좌번호</span><span class="arv" id="ac4">000-0000-0000-00</span></div>
-            <div class="acc-row"><span class="arl">예금주</span><span class="arv">공상현</span></div>
-            <button class="copy-btn" onclick="copyAcct('ac4',this)">계좌번호 복사하기</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="acc-item fade-in fd6">
-        <button class="acc-trigger" onclick="toggleAcc(this)">
-          <div class="acc-lbl">
-            <span class="acc-side">신부측</span>
-            <span class="acc-holder">이만표</span>
-          </div>
-          <span class="acc-chev">▾</span>
-        </button>
-        <div class="acc-body">
-          <div class="acc-content">
-            <div class="acc-row"><span class="arl">은행</span><span class="arv">기업은행</span></div>
-            <div class="acc-row"><span class="arl">계좌번호</span><span class="arv" id="ac6">000-000000-00-000</span></div>
-            <div class="acc-row"><span class="arl">예금주</span><span class="arv">이만표</span></div>
-            <button class="copy-btn" onclick="copyAcct('ac6',this)">계좌번호 복사하기</button>
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <div class="acc-lbl"><span class="acc-holder">이만표</span></div>
+            <span class="acc-chev">▾</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">
+              <div class="acc-row"><span class="arl">은행</span><span class="arv">기업은행</span></div>
+              <div class="acc-row"><span class="arl">계좌번호</span><span class="arv" id="ac6">000-000000-00-000</span></div>
+              <div class="acc-row"><span class="arl">예금주</span><span class="arv">이만표</span></div>
+              <button class="copy-btn" onclick="copyAcct('ac6',this)">계좌번호 복사하기</button>
+            </div>
           </div>
         </div>
       </div>
