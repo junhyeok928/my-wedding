@@ -11,9 +11,9 @@
    CSS VARIABLES
 ────────────────────────────────────── */
 :root {
-  --bg:            #1c1c1e;
-  --bg-dark:       #242428;
-  --bg-darker:     #2a2a2c;
+  --bg:            #181a1b;
+  --bg-dark:       #1e2122;
+  --bg-darker:     #232628;
   --accent:        #c0b8b2;
   --accent-rgb:    192, 184, 178;
   --accent-dim:    rgba(192,184,178,0.14);
@@ -24,7 +24,7 @@
   --text-faint:    rgba(236,232,228,0.35);
   --card:          rgba(255,255,255,0.03);
   --card-border:   rgba(255,255,255,0.08);
-  --surface:       #242428;
+  --surface:       #1e2122;
   --radius:        16px;
   --font-serif:    'NanumSquare', sans-serif;
   --font-sans:     'NanumSquare', sans-serif;
@@ -38,8 +38,8 @@ html { scroll-behavior: smooth; }
 * { -webkit-user-select: none; user-select: none; }
 
 body {
-  background: #111114;
-  background-image: radial-gradient(circle, rgba(192,160,170,0.07) 1px, transparent 1px);
+  background: #0f1113;
+  background-image: radial-gradient(circle, rgba(192,160,170,0.06) 1px, transparent 1px);
   background-size: 24px 24px;
   font-family: var(--font-sans);
   color: var(--text);
@@ -62,7 +62,13 @@ body {
 
 /* ── Alternating section tints ── */
 #gallery, #directions {
-  background: #242428;
+  background: linear-gradient(
+    to bottom,
+    #181a1b 0px,
+    #1e2122 60px,
+    #1e2122 calc(100% - 60px),
+    #181a1b 100%
+  );
 }
 
 @media (min-width: 520px) {
@@ -138,7 +144,7 @@ body {
     rgba(0,0,0,0.08) 0%,
     rgba(0,0,0,0.18) 40%,
     rgba(0,0,0,0.65) 80%,
-    rgba(28,28,30,1) 100%);
+    rgba(24,26,27,1) 100%);
 }
 .hero-content {
   position: absolute;
@@ -263,7 +269,7 @@ body {
 
 .bsheet {
   width: 100%; max-width: 480px;
-  background: #2a2a2c;
+  background: #232628;
   border-radius: 24px 24px 0 0;
   padding: 10px 24px 48px;
   animation: sheetUp .38s cubic-bezier(.34,1.4,.64,1);
@@ -357,7 +363,7 @@ body {
   aspect-ratio: 3/4;
   overflow: hidden;
   position: relative;
-  background: #2a2a2c;
+  background: #232628;
   cursor: pointer;
 }
 .gal-card img {
@@ -584,7 +590,7 @@ body {
 /* ══════════════════════════════════════
    9. FOOTER
 ══════════════════════════════════════ */
-#footer { padding: 48px 32px 60px; text-align: center; background: #1a1a1c; border-top: 1px solid rgba(255,255,255,0.06); }
+#footer { padding: 48px 32px 60px; text-align: center; background: #141618; border-top: 1px solid rgba(255,255,255,0.06); }
 .foot-msg {
   font-family: var(--font-serif);
   font-size: 15px; color: var(--text-muted);
