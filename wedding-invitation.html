@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e4e88d159af6042a4cf3f7e3e3e2e000&autoload=false"></script>
 <title>결혼합니다 전준혁 & 공연주</title>
 <style>
 @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
@@ -1073,7 +1072,7 @@ function tick(){
 tick(); setInterval(tick,1000);
 
 /* ─── Kakao Map ─── */
-kakao.maps.load(function(){
+function initKakaoMap(){
   const pos = new kakao.maps.LatLng(36.7968, 127.1044);
   const map = new kakao.maps.Map(document.getElementById('kakaoMap'), {
     center: pos,
@@ -1083,7 +1082,7 @@ kakao.maps.load(function(){
   new kakao.maps.InfoWindow({
     content: '<div style="padding:6px 12px;font-size:12px;font-weight:700;white-space:nowrap;">CA웨딩컨벤션 루체홀</div>'
   }).open(map, marker);
-});
+}
 
 /* ─── Share ─── */
 function copyLink(){
@@ -1107,5 +1106,6 @@ function shareKakao(){
   }
 }
 </script>
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e4e88d159af6042a4cf3f7e3e3e2e000&autoload=false" onload="kakao.maps.load(initKakaoMap)"></script>
 </body>
 </html>
