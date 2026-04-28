@@ -5,7 +5,7 @@
 ## 미리보기
 
 GitHub Pages를 통해 배포된 웹 청첩장입니다.  
-👉 [https://junhyeok928.github.io/my-wedding/wedding-invitation.html](https://junhyeok928.github.io/my-wedding/wedding-invitation.html)
+👉 [https://junhyeok928.github.io/my-wedding](https://junhyeok928.github.io/my-wedding)
 
 ## 기술 스택
 
