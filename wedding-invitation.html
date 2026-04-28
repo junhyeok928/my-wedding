@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e4e88d159af6042a4cf3f7e3e3e2e000&autoload=false"></script>
 <title>결혼합니다 전준혁 & 공연주</title>
 <style>
 @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
@@ -346,39 +347,78 @@ body {
    4. GALLERY
 ══════════════════════════════════════ */
 #gallery { padding: 52px 0; }
-.gal-hdr { padding: 0 32px; margin-bottom: 22px; text-align: center; }
-.gal-track {
-  display: flex; gap: 10px;
-  overflow-x: auto; padding: 4px 32px 16px;
+.gal-hdr { padding: 0 32px; margin-bottom: 16px; text-align: center; }
+.gal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+.gal-card {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  position: relative;
+  background: #e8e8e8;
+  cursor: pointer;
+}
+.gal-card img {
+  width: 100%; height: 100%; object-fit: cover;
+  display: block; transition: transform .4s ease;
+}
+.gal-card:active img { transform: scale(1.06); }
+
+/* ── Image Viewer ── */
+.viewer-ov {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  z-index: 1000;
+}
+.viewer-ov.active { display: block; }
+.viewer-track {
+  display: flex;
+  width: 100%; height: 100%;
+  overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
-.gal-track::-webkit-scrollbar { display: none; }
-.gal-card {
-  flex: 0 0 240px; height: 320px;
-  border-radius: 14px; overflow: hidden;
+.viewer-track::-webkit-scrollbar { display: none; }
+.viewer-slide {
+  flex: 0 0 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   scroll-snap-align: start;
-  border: 1px solid rgba(0,0,0,0.08);
-  position: relative; background: #e8e8e8;
 }
-.gal-card img {
-  width: 100%; height: 100%; object-fit: cover;
-  display: block; transition: transform .45s ease;
-}
-.gal-card:hover img { transform: scale(1.05); }
-.gal-card::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.25) 0%, transparent 40%);
+.viewer-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
   pointer-events: none;
 }
-.gal-dots { display: flex; justify-content: center; gap: 6px; padding-top: 4px; }
-.gdot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--accent-border); cursor: pointer;
-  transition: all .3s;
+.viewer-close {
+  position: fixed; top: 16px; right: 16px;
+  width: 38px; height: 38px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%; color: #fff; font-size: 18px;
+  cursor: pointer; z-index: 1001;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s;
 }
-.gdot.active { background: var(--accent); width: 16px; border-radius: 3px; }
+.viewer-close:hover { background: rgba(255,255,255,0.3); }
+.viewer-counter {
+  position: fixed; bottom: 24px; left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.65);
+  font-size: 13px; letter-spacing: 2px;
+  z-index: 1001; pointer-events: none;
+  font-family: var(--font-sans);
+}
 
 /* ══════════════════════════════════════
    5. DATE & COUNTDOWN
@@ -628,81 +668,6 @@ body {
   </section>
 
 
-  <!-- ══ 3. CONTACT ══ -->
-  <section id="contact">
-    <div class="contact-hdr">
-      <span class="stag fade-in">CONTACT</span>
-      <h2 class="stitle fade-in fd1">연락처</h2>
-      <p class="ssub fade-in fd2">소중한 분들께 직접 연락하세요</p>
-    </div>
-    <button class="open-contact-btn fade-in fd3" onclick="openM('mContact')">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.62-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      연락하기
-    </button>
-  </section>
-
-  <!-- Contact Modal -->
-  <div class="modal-ov" id="mContact" onclick="ovClick(event,'mContact')">
-    <div class="bsheet">
-      <div class="sheet-dots"><i></i><i></i><i></i></div>
-      <button class="close-btn" onclick="closeM('mContact')">✕</button>
-      <div class="bhandle"></div>
-      <p class="btitle">연락처</p>
-      <p class="bsub"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-1px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.62-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 전화걸기 &nbsp;·&nbsp; <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-1px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 문자보내기</p>
-      <div class="con-cols">
-        <!-- 신랑측 -->
-        <div>
-          <p class="con-col-ttl">신랑측</p>
-          <div class="cp">
-            <div><p class="cp-rel">신랑</p><p class="cp-name">전준혁</p></div>
-            <div class="cp-icons">
-              <a href="tel:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.62-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-              <a href="sms:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
-            </div>
-          </div>
-          <div class="cp">
-            <div><p class="cp-rel">신랑 아버지</p><p class="cp-name">전일수</p></div>
-            <div class="cp-icons">
-              <a href="tel:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.62-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-              <a href="sms:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
-            </div>
-          </div>
-          <div class="cp">
-            <div><p class="cp-rel">신랑 어머니</p><p class="cp-name">박은주</p></div>
-            <div class="cp-icons">
-              <a href="tel:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.62-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-              <a href="sms:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
-            </div>
-          </div>
-        </div>
-        <!-- 신부측 -->
-        <div>
-          <p class="con-col-ttl">신부측</p>
-          <div class="cp">
-            <div><p class="cp-rel">신부</p><p class="cp-name">공연주</p></div>
-            <div class="cp-icons">
-              <a href="tel:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.62-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-              <a href="sms:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
-            </div>
-          </div>
-          <div class="cp">
-            <div><p class="cp-rel">신부 아버지</p><p class="cp-name">공상현</p></div>
-            <div class="cp-icons">
-              <a href="tel:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.62-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-              <a href="sms:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
-            </div>
-          </div>
-          <div class="cp">
-            <div><p class="cp-rel">신부 어머니</p><p class="cp-name">이만표</p></div>
-            <div class="cp-icons">
-              <a href="tel:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l1.62-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-              <a href="sms:010-0000-0000"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
   <!-- ══ 4. GALLERY ══ -->
@@ -710,61 +675,37 @@ body {
     <div class="gal-hdr">
       <span class="stag fade-in">GALLERY</span>
     </div>
-    <div class="gal-track" id="galTrack">
-      <div class="gal-card">
-        <img src="img/02.jpg" alt="갤러리 1"
-          onerror="this.parentElement.style.background='#e0e0e0';this.style.display='none'">
-      </div>
-      <div class="gal-card">
-        <img src="img/03.jpg" alt="갤러리 2"
-          onerror="this.parentElement.style.background='#d8d8d8';this.style.display='none'">
-      </div>
-      <div class="gal-card">
-        <img src="img/04.jpg" alt="갤러리 3"
-          onerror="this.parentElement.style.background='#e0e0e0';this.style.display='none'">
-      </div>
-      <div class="gal-card">
-        <img src="img/05.jpg" alt="갤러리 4"
-          onerror="this.parentElement.style.background='#d8d8d8';this.style.display='none'">
-      </div>
-      <div class="gal-card">
-        <img src="img/06.jpg" alt="갤러리 5"
-          onerror="this.parentElement.style.background='#e0e0e0';this.style.display='none'">
-      </div>
-      <div class="gal-card">
-        <img src="img/07.jpg" alt="갤러리 6"
-          onerror="this.parentElement.style.background='#d8d8d8';this.style.display='none'">
-      </div>
-      <div class="gal-card">
-        <img src="img/08.jpg" alt="갤러리 7"
-          onerror="this.parentElement.style.background='#e0e0e0';this.style.display='none'">
-      </div>
-      <div class="gal-card">
-        <img src="img/09.jpg" alt="갤러리 8"
-          onerror="this.parentElement.style.background='#d8d8d8';this.style.display='none'">
-      </div>
-      <div class="gal-card">
-        <img src="img/10.jpg" alt="갤러리 9"
-          onerror="this.parentElement.style.background='#e0e0e0';this.style.display='none'">
-      </div>
-      <div class="gal-card">
-        <img src="img/11.jpg" alt="갤러리 10"
-          onerror="this.parentElement.style.background='#d8d8d8';this.style.display='none'">
-      </div>
-    </div>
-    <div class="gal-dots">
-      <div class="gdot active" onclick="scrollGal(0)"></div>
-      <div class="gdot" onclick="scrollGal(1)"></div>
-      <div class="gdot" onclick="scrollGal(2)"></div>
-      <div class="gdot" onclick="scrollGal(3)"></div>
-      <div class="gdot" onclick="scrollGal(4)"></div>
-      <div class="gdot" onclick="scrollGal(5)"></div>
-      <div class="gdot" onclick="scrollGal(6)"></div>
-      <div class="gdot" onclick="scrollGal(7)"></div>
-      <div class="gdot" onclick="scrollGal(8)"></div>
-      <div class="gdot" onclick="scrollGal(9)"></div>
+    <div class="gal-grid">
+      <div class="gal-card" onclick="openViewer(0)"><img src="img/02.jpg" alt="갤러리 1" onerror="this.parentElement.style.background='#e0e0e0';this.style.display='none'"></div>
+      <div class="gal-card" onclick="openViewer(1)"><img src="img/03.jpg" alt="갤러리 2" onerror="this.parentElement.style.background='#d8d8d8';this.style.display='none'"></div>
+      <div class="gal-card" onclick="openViewer(2)"><img src="img/04.jpg" alt="갤러리 3" onerror="this.parentElement.style.background='#e0e0e0';this.style.display='none'"></div>
+      <div class="gal-card" onclick="openViewer(3)"><img src="img/05.jpg" alt="갤러리 4" onerror="this.parentElement.style.background='#d8d8d8';this.style.display='none'"></div>
+      <div class="gal-card" onclick="openViewer(4)"><img src="img/06.jpg" alt="갤러리 5" onerror="this.parentElement.style.background='#e0e0e0';this.style.display='none'"></div>
+      <div class="gal-card" onclick="openViewer(5)"><img src="img/07.jpg" alt="갤러리 6" onerror="this.parentElement.style.background='#d8d8d8';this.style.display='none'"></div>
+      <div class="gal-card" onclick="openViewer(6)"><img src="img/08.jpg" alt="갤러리 7" onerror="this.parentElement.style.background='#e0e0e0';this.style.display='none'"></div>
+      <div class="gal-card" onclick="openViewer(7)"><img src="img/09.jpg" alt="갤러리 8" onerror="this.parentElement.style.background='#d8d8d8';this.style.display='none'"></div>
+      <div class="gal-card" onclick="openViewer(8)"><img src="img/10.jpg" alt="갤러리 9" onerror="this.parentElement.style.background='#e0e0e0';this.style.display='none'"></div>
+      <div class="gal-card" onclick="openViewer(9)"><img src="img/11.jpg" alt="갤러리 10" onerror="this.parentElement.style.background='#d8d8d8';this.style.display='none'"></div>
     </div>
   </section>
+
+  <!-- Image Viewer -->
+  <div class="viewer-ov" id="imgViewer">
+    <button class="viewer-close" onclick="closeViewer()">✕</button>
+    <div class="viewer-track" id="viewerTrack">
+      <div class="viewer-slide"><img src="img/02.jpg" alt="갤러리 1"></div>
+      <div class="viewer-slide"><img src="img/03.jpg" alt="갤러리 2"></div>
+      <div class="viewer-slide"><img src="img/04.jpg" alt="갤러리 3"></div>
+      <div class="viewer-slide"><img src="img/05.jpg" alt="갤러리 4"></div>
+      <div class="viewer-slide"><img src="img/06.jpg" alt="갤러리 5"></div>
+      <div class="viewer-slide"><img src="img/07.jpg" alt="갤러리 6"></div>
+      <div class="viewer-slide"><img src="img/08.jpg" alt="갤러리 7"></div>
+      <div class="viewer-slide"><img src="img/09.jpg" alt="갤러리 8"></div>
+      <div class="viewer-slide"><img src="img/10.jpg" alt="갤러리 9"></div>
+      <div class="viewer-slide"><img src="img/11.jpg" alt="갤러리 10"></div>
+    </div>
+    <p class="viewer-counter" id="viewerCounter">1 / 10</p>
+  </div>
 
 
   <!-- ══ 5. DATE & COUNTDOWN ══ -->
@@ -790,16 +731,14 @@ body {
       <h2 class="stitle fade-in fd1">오시는 길</h2>
     </div>
 
+    <div id="kakaoMap" style="width:100%;height:260px;overflow:hidden;margin-bottom:14px;border-top:1px solid rgba(0,0,0,0.08);border-bottom:1px solid rgba(0,0,0,0.08);"></div>
+
     <div class="addr-card fade-in fd1">
       <p class="venue-name">CA웨딩컨벤션 루체홀</p>
       <p class="venue-addr">
         충남 아산시 배방읍 희망로 100 (장재리 364-4)<br>
         KTX천안아산역 역사내 2층
       </p>
-      <div class="map-btns">
-        <a href="https://map.naver.com/v5/search/CA웨딩컨벤션" target="_blank" class="mbtn naver"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg> 네이버 지도</a>
-        <a href="https://map.kakao.com/link/search/CA웨딩컨벤션" target="_blank" class="mbtn kakao"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> 카카오 지도</a>
-      </div>
     </div>
 
     <div class="trans-list fade-in fd3">
@@ -1008,9 +947,12 @@ function openM(id){ document.getElementById(id).classList.add('active'); documen
 function closeM(id){ document.getElementById(id).classList.remove('active'); document.body.style.overflow=''; }
 function ovClick(e,id){ if(e.target.classList.contains('modal-ov')) closeM(id); }
 document.addEventListener('keydown', e => {
-  if(e.key==='Escape') document.querySelectorAll('.modal-ov.active').forEach(m=>{
-    m.classList.remove('active'); document.body.style.overflow='';
-  });
+  if(e.key==='Escape'){
+    document.querySelectorAll('.modal-ov.active').forEach(m=>{
+      m.classList.remove('active'); document.body.style.overflow='';
+    });
+    closeViewer();
+  }
   /* 캡처 관련 단축키 차단 */
   const block = e.key==='PrintScreen' ||
     (e.ctrlKey && ['s','S','p','P','u','U','a','A'].includes(e.key)) ||
@@ -1056,14 +998,28 @@ function showToast(msg){
   setTimeout(()=>t.classList.remove('show'), 2300);
 }
 
-/* ─── Gallery dots ─── */
-const galTrack = document.getElementById('galTrack');
-const gdots = document.querySelectorAll('.gdot');
-function scrollGal(i){ galTrack.querySelectorAll('.gal-card')[i]?.scrollIntoView({behavior:'smooth',inline:'start',block:'nearest'}); }
-galTrack.addEventListener('scroll', ()=>{
-  const i = Math.round(galTrack.scrollLeft / (galTrack.clientWidth * 0.56));
-  gdots.forEach((d,j)=>d.classList.toggle('active',j===i));
-});
+/* ─── Image Viewer ─── */
+const viewerTrack = document.getElementById('viewerTrack');
+const viewerCounter = document.getElementById('viewerCounter');
+const viewerSlides = viewerTrack.querySelectorAll('.viewer-slide');
+
+function openViewer(idx) {
+  document.getElementById('imgViewer').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  requestAnimationFrame(() => {
+    viewerTrack.scrollLeft = idx * viewerTrack.clientWidth;
+    updateViewerCounter();
+  });
+}
+function closeViewer() {
+  document.getElementById('imgViewer').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function updateViewerCounter() {
+  const i = Math.round(viewerTrack.scrollLeft / viewerTrack.clientWidth);
+  viewerCounter.textContent = `${i + 1} / ${viewerSlides.length}`;
+}
+viewerTrack.addEventListener('scroll', updateViewerCounter);
 
 /* ─── Calendar ─── */
 (function buildCal(){
@@ -1115,6 +1071,19 @@ function tick(){
   document.getElementById('tS').textContent=String(s).padStart(2,'0');
 }
 tick(); setInterval(tick,1000);
+
+/* ─── Kakao Map ─── */
+kakao.maps.load(function(){
+  const pos = new kakao.maps.LatLng(36.7968, 127.1044);
+  const map = new kakao.maps.Map(document.getElementById('kakaoMap'), {
+    center: pos,
+    level: 3
+  });
+  const marker = new kakao.maps.Marker({ position: pos, map });
+  new kakao.maps.InfoWindow({
+    content: '<div style="padding:6px 12px;font-size:12px;font-weight:700;white-space:nowrap;">CA웨딩컨벤션 루체홀</div>'
+  }).open(map, marker);
+});
 
 /* ─── Share ─── */
 function copyLink(){
