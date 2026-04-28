@@ -28,14 +28,14 @@ GitHub Pages를 통해 배포된 웹 청첩장입니다.
 
 ```bash
 python -m http.server 8080
-# http://localhost:8080/wedding-invitation.html
+# http://localhost:8080/
 ```
 
 ## 카카오 API 설정
 
 [Kakao Developers](https://developers.kakao.com) → 앱 설정 → 플랫폼 → Web에 배포 도메인 등록 필요
 
-- **지도 API 키** : `wedding-invitation.html` 하단 스크립트 태그의 `appkey` 값
+- **지도 API 키** : `index.html` 하단 스크립트 태그의 `appkey` 값
 - **공유 SDK 키** : `shareKakao()` 함수 내 `Kakao.init()` 호출 시 사용
 
 ## 이미지 교체
