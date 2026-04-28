@@ -380,6 +380,7 @@ body {
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   z-index: 1000;
+  touch-action: none;
 }
 .viewer-ov.active { display: block; }
 .viewer-track {
@@ -389,6 +390,7 @@ body {
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  touch-action: pan-x;
 }
 .viewer-track::-webkit-scrollbar { display: none; }
 .viewer-slide {
@@ -1026,6 +1028,9 @@ function updateViewerCounter() {
   viewerCounter.textContent = `${i + 1} / ${viewerSlides.length}`;
 }
 viewerTrack.addEventListener('scroll', updateViewerCounter);
+document.getElementById('imgViewer').addEventListener('touchmove', function(e){
+  if(e.touches.length > 1) e.preventDefault();
+}, { passive: false });
 
 /* ─── Calendar ─── */
 (function buildCal(){
