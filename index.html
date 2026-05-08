@@ -961,7 +961,7 @@ function toggleAcc(btn){
 
 /* ─── Copy account ─── */
 function copyAcct(id, btn){
-  const txt = document.getElementById(id).textContent.trim();
+  const txt = document.getElementById(id).textContent.trim().replace(/-/g, '');
   const done = ()=>{
     btn.textContent='✓ 복사되었습니다'; btn.classList.add('done');
     showToast('계좌번호가 복사되었습니다 ✓');
