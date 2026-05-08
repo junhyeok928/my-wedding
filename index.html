@@ -537,7 +537,8 @@ body {
   background: none; border: none; cursor: pointer;
   color: var(--text); font-family: var(--font-sans); text-align: left;
 }
-.acc-lbl { display: flex; flex-direction: column; gap: 3px; }
+.acc-lbl { display: flex; align-items: center; gap: 8px; }
+.acc-role { font-size: 11px; color: var(--accent); background: rgba(135,129,123,.13); border-radius: 4px; padding: 2px 6px; letter-spacing: .03em; }
 .acc-side { font-size: 10px; font-weight: 700; letter-spacing: 3px; color: var(--accent); }
 .acc-holder { font-family: var(--font-serif); font-size: 15px; color: var(--text); font-weight: 600; }
 .acc-chev { font-size: 18px; color: var(--text-muted); transition: transform .3s; line-height: 1; }
@@ -801,7 +802,7 @@ body {
 
         <div class="acc-item">
           <button class="acc-trigger" onclick="toggleAcc(this)">
-            <div class="acc-lbl"><span class="acc-holder">전준혁</span></div>
+            <div class="acc-lbl"><span class="acc-holder">전준혁</span><span class="acc-role">신랑</span></div>
             <span class="acc-chev">▾</span>
           </button>
           <div class="acc-body">
@@ -816,7 +817,7 @@ body {
 
         <div class="acc-item">
           <button class="acc-trigger" onclick="toggleAcc(this)">
-            <div class="acc-lbl"><span class="acc-holder">전일수</span></div>
+            <div class="acc-lbl"><span class="acc-holder">전일수</span><span class="acc-role">아버지</span></div>
             <span class="acc-chev">▾</span>
           </button>
           <div class="acc-body">
@@ -831,7 +832,7 @@ body {
 
         <div class="acc-item">
           <button class="acc-trigger" onclick="toggleAcc(this)">
-            <div class="acc-lbl"><span class="acc-holder">박은주</span></div>
+            <div class="acc-lbl"><span class="acc-holder">박은주</span><span class="acc-role">어머니</span></div>
             <span class="acc-chev">▾</span>
           </button>
           <div class="acc-body">
@@ -851,7 +852,7 @@ body {
 
         <div class="acc-item">
           <button class="acc-trigger" onclick="toggleAcc(this)">
-            <div class="acc-lbl"><span class="acc-holder">공연주</span></div>
+            <div class="acc-lbl"><span class="acc-holder">공연주</span><span class="acc-role">신부</span></div>
             <span class="acc-chev">▾</span>
           </button>
           <div class="acc-body">
@@ -867,7 +868,7 @@ body {
 
         <div class="acc-item">
           <button class="acc-trigger" onclick="toggleAcc(this)">
-            <div class="acc-lbl"><span class="acc-holder">이만표</span></div>
+            <div class="acc-lbl"><span class="acc-holder">이만표</span><span class="acc-role">어머니</span></div>
             <span class="acc-chev">▾</span>
           </button>
           <div class="acc-body">
