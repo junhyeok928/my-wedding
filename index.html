@@ -1073,10 +1073,20 @@ function shareKakao(){
       objectType:'feed',
       content:{
         title:`${W.groom} ♥ ${W.bride} 결혼합니다`,
-        description:`${W.y}년 ${W.mo}월 ${W.d}일`,
-        imageUrl: location.origin+'/img/thumb.jpg',
-        link:{ mobileWebUrl:location.href, webUrl:location.href }
-      }
+        description:`${W.y}년 ${W.mo}월 ${W.d}일 오후 4시 · CA웨딩컨벤션 루체홀`,
+        imageUrl:'https://junhyeok928.github.io/my-wedding/img/thumb.jpg',
+        link:{
+          mobileWebUrl:'https://junhyeok928.github.io/my-wedding/',
+          webUrl:'https://junhyeok928.github.io/my-wedding/'
+        }
+      },
+      buttons:[{
+        title:'청첩장 보기',
+        link:{
+          mobileWebUrl:'https://junhyeok928.github.io/my-wedding/',
+          webUrl:'https://junhyeok928.github.io/my-wedding/'
+        }
+      }]
     });
   } else {
     copyLink();
@@ -1085,9 +1095,9 @@ function shareKakao(){
 }
 </script>
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e4e88d159af6042a4cf3f7e3e3e2e000&autoload=false" onload="kakao.maps.load(initKakaoMap)"></script>
-<script src="https://t1.kakaocdn.net/kakaojs/2.7.2/kakao.min.js"></script>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.8.1/kakao.min.js" integrity="sha384-OL+ylM/iuPLtW5U3XcvLSGhE8JzReKDank5InqlHGWPhb4140/yrBw0bg0y7+C9J" crossorigin="anonymous"></script>
 <script>
-  Kakao.init('e4e88d159af6042a4cf3f7e3e3e2e000');
+  if (!Kakao.isInitialized()) Kakao.init('e4e88d159af6042a4cf3f7e3e3e2e000');
 </script>
 </body>
 </html>
