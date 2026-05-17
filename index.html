@@ -894,7 +894,7 @@ body {
       함께해 주셔서 감사합니다.<br>소중한 발걸음 기다리겠습니다.
     </p>
     <div class="foot-btns">
-      <button class="share-btn sb-kakao" onclick="shareKakao()">💛 카카오톡으로 공유하기</button>
+      <a class="share-btn sb-kakao" href="javascript:shareKakao()">💛 카카오톡으로 공유하기</a>
       <button class="share-btn sb-link"  onclick="copyLink()">🔗 링크 복사하기</button>
     </div>
     <p class="foot-credit">전준혁 ♥ 공연주 · 2026</p>
@@ -1080,13 +1080,22 @@ function shareKakao(){
           webUrl:'https://junhyeok928.github.io/my-wedding/'
         }
       },
-      buttons:[{
-        title:'청첩장 보기',
-        link:{
-          mobileWebUrl:'https://junhyeok928.github.io/my-wedding/',
-          webUrl:'https://junhyeok928.github.io/my-wedding/'
+      buttons:[
+        {
+          title:'웹으로 보기',
+          link:{
+            mobileWebUrl:'https://junhyeok928.github.io/my-wedding/',
+            webUrl:'https://junhyeok928.github.io/my-wedding/'
+          }
+        },
+        {
+          title:'앱으로 보기',
+          link:{
+            mobileWebUrl:'https://junhyeok928.github.io/my-wedding/',
+            webUrl:'https://junhyeok928.github.io/my-wedding/'
+          }
         }
-      }]
+      ]
     });
   } else {
     copyLink();
