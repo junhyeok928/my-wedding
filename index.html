@@ -1097,20 +1097,15 @@ function shareKakao(){
       },
       buttons:[
         {
-          title:'웹으로 보기',
+          title:'모바일 청첩장 보기',
           link:{
             mobileWebUrl:'https://junhyeok928.github.io/my-wedding/',
             webUrl:'https://junhyeok928.github.io/my-wedding/'
-          }
+          },
         },
-        {
-          title:'앱으로 보기',
-          link:{
-            mobileWebUrl:'https://junhyeok928.github.io/my-wedding/',
-            webUrl:'https://junhyeok928.github.io/my-wedding/'
-          }
-        }
-      ]
+      ],
+        // 카카오톡 미설치 시 카카오톡 설치 경로이동
+        installTalk: true,
     });
   } else {
     copyLink();
